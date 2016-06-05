@@ -1,5 +1,8 @@
 package com.mycompany.java_katas;
 
+
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,7 +22,7 @@ public class BabySitterTest {
 	 */
 	@Test(expected=BabySitterException.class)
 	public void testCannotStartBeforeFivePM() throws BabySitterException {
-		babysitter.calculate(16, 4);
+		babysitter.calculate(16, 4, 4);
 	}
 	
 	/*
@@ -27,11 +30,16 @@ public class BabySitterTest {
 	 */
 	@Test(expected=BabySitterException.class)
 	public void testCannotStopAfterFourAM() throws BabySitterException {
-		babysitter.calculate(17, 5);
+		babysitter.calculate(17, 5 , 4);
 	}
 	
-	// gets paid $12/hour from start-time to bedtime
-	
+	/*
+	 * Test calculate babysitter payment of $12/hour form start-time to bedtime
+	 */
+	@Test
+	public void testCalculatePaymentFromStartToBedTime() throws BabySitterException {
+		assertEquals(48, babysitter.calculate(17, 21, 21));
+	}
 	
 	// gets paid $8/hour from bedtime to midnight
 	
