@@ -1,7 +1,5 @@
 package com.mycompany.java_katas;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,12 +18,17 @@ public class BabySitterTest {
 	 * Test BabySitter start time cannot be before 5pm
 	 */
 	@Test(expected=BabySitterException.class)
-	public void testStartAfterFive() throws BabySitterException {
-		babysitter.calculate(16);
+	public void testCannotStartBeforeFivePM() throws BabySitterException {
+		babysitter.calculate(16, 4);
 	}
 	
-	// leaves no later than 4:00AM
-	
+	/*
+	 * Test Babysitter stop time cannot be after 4am
+	 */
+	@Test(expected=BabySitterException.class)
+	public void testCannotStopAfterFourAM() throws BabySitterException {
+		babysitter.calculate(17, 5);
+	}
 	
 	// gets paid $12/hour from start-time to bedtime
 	
