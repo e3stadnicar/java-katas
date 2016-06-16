@@ -59,7 +59,11 @@ public class BabySitter {
 	 */
 	public int calculate(int start, int stop, int bedTime) throws BabySitterException {
 		//TODO: Do not allow start before stop
-				
+		// Do not allow start time before 5p
+		if ((startTime > this.stopAllowed && startTime < this.startAllowed) || (stop < this.startAllowed && stop > this.stopAllowed)) {
+			throw new BabySitterException("Start time must be between babysitting hours of " + startAllowed + " and " + stopAllowed);
+		}
+		
 		setStartTime(start);
 		setStopTime(stop);
 		setBedTime(bedTime);
@@ -73,10 +77,7 @@ public class BabySitter {
 	 * Sets Babysitter start time
 	 * @param start Babysitter start time
 	 */
-	private void setStartTime(int start) throws BabySitterException {
-		if (start < this.startAllowed && start > this.stopAllowed) {
-			throw new BabySitterException("Babysitter start time cannot be before " + this.startAllowed + " PM or after " + this.stopAllowed + " AM.");
-		}
+	private void setStartTime(int start) {
 		this.startTime = start;
 	}
 	
@@ -84,10 +85,7 @@ public class BabySitter {
 	 * Sets Babysitter stop time
 	 * @param stop Babysitter stop time
 	 */
-	private void setStopTime(int stop) throws BabySitterException {
-		if (stop > this.stopAllowed && stop < this.startAllowed) {
-			throw new BabySitterException("Babysitter stop time cannot be before " + this.startAllowed + " PM or after " + this.stopAllowed + " AM.");
-		}
+	private void setStopTime(int stop) {
 		this.stopTime = stop;
 	}
 	
@@ -95,10 +93,7 @@ public class BabySitter {
 	 * Sets Babysitter bed time
 	 * @param Baby or child's bed time
 	 */
-	private void setBedTime(int toBed) throws BabySitterException {
-		if ((toBed < startTime )) {
-			throw new BabySitterException("Bed time must be within sitting hours.");
-		}
+	private void setBedTime(int toBed) {
 		this.bedTime = toBed;
 	}
 
