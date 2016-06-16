@@ -57,7 +57,9 @@ public class BabySitterTest {
 		assertEquals(16, babysitter.calculate(21, 23, 21));
 		assertEquals(40, babysitter.calculate(23, 4, 23));
 		
-		//assertEquals(116, babysitter.calculate(17, 4, 0));
+		assertEquals(116, babysitter.calculate(17, 4, 0));
+		assertEquals(52, babysitter.calculate(18, 23, 21));
+		assertEquals(88, babysitter.calculate(19, 4, 23));
 	}
 	
 	
