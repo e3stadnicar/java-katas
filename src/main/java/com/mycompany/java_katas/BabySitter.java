@@ -70,7 +70,10 @@ public class BabySitter {
 		setStopTime(stop);
 		setBedTime(bedTime);
 		
+		// Hold hours for calculation
 		int hours;
+		
+		// Start to bedtime hours calculation
 		if (bedTime < start) {
 			hours = 24 - (start - bedTime);
 		}
@@ -78,8 +81,10 @@ public class BabySitter {
 			hours = bedTime - start;
 		}
 		
+		// Set before bed payment
 		int bPay = this.beforeBedPay * hours;
 		
+		// Bedtime to stop hours calcualtion
 		if (bedTime > stop) {
 			hours = 24 - (bedTime - stop);
 		}

@@ -62,8 +62,13 @@ public class BabySitterTest {
 		assertEquals(88, babysitter.calculate(19, 4, 23));
 	}
 	
-	
-	// gets paid $16/hour from midnight to end of job
+	/*
+	 * Test calculate babysitter payment of $16/hour from midnight to end of job
+	 */
+	@Test 
+	public void testCalculatePaymentFromMidnightToStop() throws BabySitterException {
+		assertEquals(64, babysitter.calculate(0, 4, 0));
+	}
 	
 	
 	// gets paid for full hours (no fractional hours)
