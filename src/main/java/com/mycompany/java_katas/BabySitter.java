@@ -78,9 +78,18 @@ public class BabySitter {
 			hours = bedTime - start;
 		}
 		
-		int beforeBedPay = this.beforeBedPay * hours;
+		int bPay = this.beforeBedPay * hours;
 		
-		int payment = beforeBedPay;
+		if (bedTime > stop) {
+			hours = 24 - (bedTime - stop);
+		}
+		else {
+			hours = stop - bedTime;
+		}
+		
+		int aPay = this.afterBedPay * hours;
+		
+		int payment = bPay + aPay;
 		return payment;
 	}
 	
