@@ -50,8 +50,8 @@ public class BabySitterTest {
 	 * Test calculate babysitter payment of $8/hour from bedtime to midnight
 	 */
 	@Test
-	public void testCalculatePaymentFromBedTimeToMidnight() {
-		
+	public void testCalculatePaymentFromBedTimeToMidnight() throws BabySitterException {
+		assertEquals(64, babysitter.calculate(20, 4, 20));
 	}
 	
 	

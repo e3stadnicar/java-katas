@@ -22,6 +22,7 @@ public class BabySitter {
 	private int stopTime;
 	private int bedTime;
 	private int beforeBedPay;
+	private int afterBedPay;
 	
 	/*
 	 * Babysitter constructor
@@ -39,6 +40,7 @@ public class BabySitter {
 			this.startAllowed = Integer.parseInt(props.getProperty("START_ALLOWED"));
 			this.stopAllowed = Integer.parseInt(props.getProperty("STOP_ALLOWED"));
 			this.beforeBedPay = Integer.parseInt(props.getProperty("BEFORE_BED_PAY"));
+			this.afterBedPay = Integer.parseInt(props.getProperty("AFTER_BED_PAY"));
 			
 		} catch (IOException ex) {
 			ex.printStackTrace();
@@ -68,8 +70,10 @@ public class BabySitter {
 		setStopTime(stop);
 		setBedTime(bedTime);
 		
-		int payment = this.beforeBedPay * (this.bedTime - this.startTime);
+		int beforeBedPay = this.beforeBedPay * (this.bedTime - this.startTime);
+		int afterBedPay = this.afterBedPay * (this.stopTime - this.bedTime);
 		
+		int payment = beforeBedPay + afterBedPay;
 		return payment;
 	}
 	
