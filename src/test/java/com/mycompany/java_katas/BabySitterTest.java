@@ -44,6 +44,8 @@ public class BabySitterTest {
 	@Test
 	public void testCalculatePaymentFromStartToBedTime() throws BabySitterException {
 		assertEquals(48, babysitter.calculate(17, 21, 21));
+		assertEquals(84, babysitter.calculate(17, 0, 0));
+		assertEquals(132, babysitter.calculate(17, 4, 4));
 	}
 	
 	/*
@@ -51,7 +53,11 @@ public class BabySitterTest {
 	 */
 	@Test
 	public void testCalculatePaymentFromBedTimeToMidnight() throws BabySitterException {
-		assertEquals(64, babysitter.calculate(20, 4, 20));
+		//assertEquals(32, babysitter.calculate(0, 4, 0));
+		//assertEquals(16, babysitter.calculate(21, 23, 21));
+		//assertEquals(40, babysitter.calculate(23, 4, 23));
+		
+		//assertEquals(116, babysitter.calculate(17, 4, 0));
 	}
 	
 	
